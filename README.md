@@ -25,10 +25,3 @@ Play the Game: Guess the secret number and receive feedback on each guess until 
 Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request. Contributions are welcome and encouraged!
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Contact
-For any questions or feedback, please contact the project maintainer at email@example.com.
-
-Feel free to customize this description based on your specific project details and requirements. If you need further assistance, let me know!
