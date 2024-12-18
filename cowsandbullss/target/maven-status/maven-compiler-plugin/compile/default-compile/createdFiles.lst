@@ -1,8 +1,0 @@
-com\nsp\cowsandbullss\model\User.class
-com\nsp\cowsandbullss\service\ScoreService.class
-com\nsp\cowsandbullss\model\Score.class
-com\nsp\cowsandbullss\CowsandbullssApplication.class
-com\nsp\cowsandbullss\service\UserService.class
-com\nsp\cowsandbullss\repository\ScoreRepository.class
-com\nsp\cowsandbullss\repository\UserRepository.class
-com\nsp\cowsandbullss\Controller\GameController.class
