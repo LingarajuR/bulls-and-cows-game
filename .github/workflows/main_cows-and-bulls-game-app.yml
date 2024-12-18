@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: 'target/*.jar'
+          path: 'target/*.war'
           retention-days: 5
           
           
@@ -65,5 +65,5 @@ jobs:
         with:
           app-name: 'Cows-And-Bulls-Game-App'
           slot-name: 'Production'
-          package: 'java-app/*.jar'
+          package: 'java-app/*.war'
           
