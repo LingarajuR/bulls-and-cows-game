@@ -1,0 +1,107 @@
+  
+ /* Resetting basic styles */
+body, h1, p, button, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraph styling */
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Input field styling */
+input {
+    padding: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    transition: transform 0.2s ease;
+}
+
+input:focus {
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* Game area styling */
+#game-area {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Result display styling */
+.result {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    button, input {
+        width: calc(100% - 40px);
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+ 
+         

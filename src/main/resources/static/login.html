@@ -1,0 +1,54 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bulls and Cows Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Login</h1>
+    <p>Sign in to play the game!</p>
+    
+    <div id="login-area">
+        <input type="text" id="login-username-input" placeholder="Enter your username" required>
+        <input type="password" id="login-password-input" placeholder="Enter your password" required>
+        <div>
+        <button id="login-user">Login</button>
+        <button id="Game-home">Home</button>
+        </div>
+        <div class="result" id="login-result"></div>
+    </div>
+  
+  
+  
+    <script>
+        let apiUrl = "http://localhost:8080/game";
+
+        document.getElementById('login-user').addEventListener('click', async () => {
+            const username = document.getElementById('login-username-input').value;
+            const password = document.getElementById('login-password-input').value;
+
+            const response = await fetch(`${apiUrl}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+            const result = await response.json();
+            if (result.success) {
+                alert('Login successful!');
+                window.location.href = "game.html"; // Redirect to game page
+            } else {
+                document.getElementById('login-result').innerText= 'Login failed: ' + result.message;       }
+        });
+        
+        
+        document.getElementById('Game-home').addEventListener('click', async () => {
+            const response = await fetch(`${apiUrl}/game`);
+                window.location.href = "index.html"; // Redirect to Home page
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Home - Bulls and Cows Game</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body style="background-color: chocolate;">
+    <h1>Welcome To BullS And Cows Game</h1>
+    <div>
+        <button id="register-user">Start</button>
+       </div>
+   
+</body>
+
+  <script>
+        let apiUrl = "http://localhost:8080/game";
+        
+        
+        document.getElementById('register-user').addEventListener('click', async () => {
+        const response = await fetch(`${apiUrl}/register`);
+            window.location.href = "register.html"; // Redirect to register page
+        });
+        
+        
+        document.getElementById('Guest-user').addEventListener('click', async () => {
+            const response = await fetch(`${apiUrl}/register`);
+                window.location.href = "game.html"; // Redirect to game page
+            });
+    </script>
+</html>

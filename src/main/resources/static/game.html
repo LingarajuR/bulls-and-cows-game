@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and Cows Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Bulls and Cows Game</h1>
+    <p>Guess the 4-digit number with unique digits!</p>
+       <p> Bulls = correct code, correct position.</p>
+       <p> Cows = correct code, wrong position.</p>
+    
+
+    <button id="start-game">Start Game</button>
+    <button id="logout">Logout</button>
+    <div id="game-area" style="display:none;">
+        <input type="text" id="guess-input" placeholder="Enter your guess" required>
+        <button id="submit-guess">Submit Guess</button>
+        <div class="result" id="result"></div>
+    </div>
+    
+ <script>
+        let apiUrl = "http://localhost:8080/game";
+
+        document.getElementById('start-game').addEventListener('click', async () => {
+            const response = await fetch(`${apiUrl}/start`);
+            const message = await response.text();
+            alert(message);
+            document.getElementById('game-area').style.display = 'block';
+        });
+
+        document.getElementById('submit-guess').addEventListener('click', async () => {
+            const guess = document.getElementById('guess-input').value;
+
+            const response = await fetch(`${apiUrl}/guess`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ guess })
+            });
+
+            const result = await response.json();
+            if (result.error) {
+                document.getElementById('result').innerText = result.error;
+            } else {
+                document.getElementById('result').innerText = `Bulls: ${result.bulls}, Cows: ${result.cows}`;
+                if (result.success) {
+                    alert("Congratulations! You guessed the number!");
+                }
+            }
+        });
+
+        document.getElementById('logout').addEventListener('click', async () => {
+            const response = await fetch(`${apiUrl}/logout`, {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                alert('Logout successful!');
+                window.location.href = "login.html"; // Redirect to login page
+            } else {
+                alert('Logout failed!');
+            }
+        });
+    </script>
+</body>
+</html>
+    
